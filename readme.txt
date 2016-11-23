@@ -1,2 +1,2 @@
-hello world!
-第一个git项目
+Git is a distributed version control system.
+Git is free software.
