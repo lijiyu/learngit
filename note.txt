@@ -84,3 +84,56 @@ feature 分支
 开发一个新feature，最好新建一个分支；
 如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
 
+协作编辑
+1)查看远程库信息
+git remote
+git remote -v
+2)推送分支
+推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支这样，Git就会把该分支推送到远程库对应的远程分支上：
+git push origin master
+
+多人协助模式
+    a、首先，可以试图用git push origin branch-name推送自己的修改；
+    b、如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+    c、如果合并有冲突，则解决冲突，并在本地提交；
+    d、没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+    e、如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+
+-----------------------------标签管理----------------------------
+发布版本是，在版本库中打一个标签tag
+
+打标签
+1）切换到需要打标签的分支上 git checkout master
+2)git tag v1.0 打标签
+3） git tag 查看所有标签
+
+git show <tagname>查看标签信息
+git tag -a <tagname> -m "blablabla..."可以指定标签信息；
+git tag -s <tagname> -m "blablabla..."可以用PGP签名标签；
+
+操作标签：
+    命令git push origin <tagname>可以推送一个本地标签；
+    命令git push origin --tags可以推送全部未推送过的本地标签；
+    命令git tag -d <tagname>可以删除一个本地标签；
+    命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
+
+自定义GIT 
+git config --global color.ui true  显示颜色
+
+忽略文件
+忽略某些文件时，需要编写.gitignore
+.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
+
+git config --global alias.st status  git 别名
+
+
+
+
+
+
+
+
+
+
+
+
