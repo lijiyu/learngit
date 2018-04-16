@@ -1,0 +1,6 @@
+1 每次修改代码后先查看状态   git status 
+
+2 提交代码 git commit -m "新增xxx功能" 
+
+3 将代码提交远程服务器(github) git push 
+  会提示输入用户名和密码
